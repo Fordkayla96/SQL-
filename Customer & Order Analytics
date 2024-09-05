@@ -47,6 +47,10 @@ GROUP BY product
 
 #7. How many customers ordered more than 2 products at a time, and what was the average amount spent for those customers? 
 select 
+SELECT Product, SUM(quantity)
+FROM FebSales
+WHERE location like '%Los Angeles%'
+GROUP BY Product
 count(distinct cust.acctnum), 
 avg(quantity*price)
 FROM BIT_DB.FebSales Feb
@@ -55,3 +59,4 @@ ON FEB.orderid=cust.order_id
 WHERE Feb.Quantity>2
 AND length(orderid) = 6 
 AND orderid <> 'Order ID'
+#8 List all the products sold in Los Angeles in February, and include how many of each were sold.
