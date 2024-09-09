@@ -1,0 +1,39 @@
+Select *
+FROM customers
+
+#1 Show only the Customers from Brazil.
+
+Select CustomerId,country
+From Customers 
+Where Country= "Brazil"
+
+Select *
+FROM invoices
+
+#2 Find the Invoices of customers who are from Brazil.
+
+Select c.CustomerId,c.FirstName,c.LastName,i.InvoiceDate,i.BillingCountry,i.InvoiceId
+
+from customers c
+Inner join invoices i
+
+on c.CustomerId=I.CustomerId
+Where i.BillingCountry= "Brazil"
+
+ #3 Show the Employees who are Sales Agents.
+
+Select employeeId,LastName,FirstName,Title
+From Employees
+Where Title= "Sales Support Agent"
+
+#4 How many Invoices were there in 2009?
+
+Select InvoiceDate, Count (Invoiceid)
+From invoices
+Group BY InvoiceDate = "2009"
+
+#5 What are the total sales for 2009?
+
+Select InvoiceDate, Sum(Total)
+From invoices
+Group BY InvoiceDate = "2009"
